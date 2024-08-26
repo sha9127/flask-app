@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: falsk-app-deployment
+  namespace: flask-app
+  annotations:
+    kubernetes.io/change-cause: "deploy flask app"
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      name: flask-pod
+      labels:
+        app: flask-app
+    spec:
+      containers:
+        - name: flask-container
+          image: shashank2024/python-fast-api:latest
+          ports:
+            - containerPort: 9001
