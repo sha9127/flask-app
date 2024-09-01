@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: falsk-app-deployment
-  namespace: flask-app
+  namespace: flask-app-git
   annotations:
     kubernetes.io/change-cause: "deploy flask app"
 spec:
